@@ -10,14 +10,13 @@ include "db.php";
 
         $query = mysqli_query($db, $get_cat);
 
-        
+
 
         while ($ar = mysqli_fetch_array($query)) {
             $cat_id = $ar['cat_id'];
             $cat_title = $ar['cat_title'];
-            
-             echo "<li><a href='products.php?cat=$cat_id'>$cat_title</a></li>";
 
+            echo "<li><a href='products.php?cat=$cat_id'>$cat_title</a></li>";
         };
 
 
