@@ -2,7 +2,12 @@
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
-<?php include "sidebar.php" ?>
+<?php include "sidebar.php";
+
+include "functions.php";
+?>
+
+
 <!-- Hero Section End -->
 
 <!-- Categories Section Begin -->
@@ -97,7 +102,7 @@
                                     background: #7fad39;
                                     border-color: #7fad39;
                                     color: white;'>view</button></a>
-                                    <li><a href='#'><i class='fa fa-shopping-cart'></i></a></li>
+                                    <li><a href='index.php?add_cart=$prod_id'><i class='fa fa-shopping-cart'></i></a></li>
                                 </ul>
                     </div>                    
                 

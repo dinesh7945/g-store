@@ -1,3 +1,10 @@
+<?php
+
+include "db.php";
+@session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -24,13 +31,28 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
-    <script>
-        // $(document).ready(function() {
-        //     $('#hv').hover(function() {
-        //         $("p").html("Hello <b>world</b>!");
-        //     })
-        // });
-    </script>
+    <style>
+        .maindiv {
+            margin: auto;
+            max-width: 400px;
+            background: #F3F6FA;
+            border: 1px solid;
+            border-color: #F3F6FA;
+            border-radius: 41px;
+
+        }
+
+        .lg-form {
+            padding: 20px;
+        }
+
+        .sub-btn {
+            background: #7fad39;
+            color: white;
+            text-align: center;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -39,7 +61,8 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Humberger Begin -->
+
+
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
@@ -91,7 +114,7 @@
         </div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> Username</li>
+                <!-- <li><i class="fa fa-envelope"></i> Username</li> -->
                 <li>Free Shipping for all Order of Rs.99</li>
             </ul>
         </div>
@@ -106,7 +129,26 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> UserName</li>
+                                <?php
+                                if (!isset($_SESSION['customer_email'])) {
+                                    echo "<li><i class='fa fa-envelope'></i> Username</li>";
+                                } else {
+                                    $get_customer = "select * from customer";
+                                    // customer--->fetching in fullname  
+                                    $run_customer = mysqli_query($db, $get_customer);
+                                    // execution for sql query--->ie used mysqli_query
+                                    while ($row_customer = mysqli_fetch_array($run_customer)) {
+                                        // in loopp product_details are fetch 
+                                        $cust_id = $row_customer['customer_id'];
+                                        $cust_fname = $row_customer['customer_name'];
+                                        
+                                    }
+                                    echo "<li><i class='fa fa-envelope'></i> $cust_fname</li>";
+                                };
+
+                                ?>
+
+                                <!-- <li><i class="fa fa-envelope"></i> UserName</li> -->
                                 <li>Free Shipping for all Order of Rs.99</li>
                             </ul>
                         </div>
@@ -129,7 +171,16 @@
                                 </ul>
                             </div> -->
                             <div class="header__top__right__auth">
-                                <a href="register.php"><i class="fa fa-user"></i> Login</a>
+                                <?php if (!isset($_SESSION['customer_email'])) {
+
+                                    // echo "<a href='checkout.php' role='button' style='padding-right:0'><span class='btn btn-large btn-success'>Login</span></a>";
+                                    echo "<a href='checkout.php'><i class='fa fa-user'></i> Login</a>";
+                                } else {
+                                    // echo "<a href='logout.php' role='button' style='padding-right:0'><span class='btn btn-large btn-success'>Logout</span></a>";
+                                    echo "<a href='logout.php'><i class='fa fa-user'></i> Logout</a>";
+                                }
+                                ?>
+                                <!-- <a href="register.php"><i class="fa fa-user"></i> Login</a> -->
                             </div>
                         </div>
                     </div>
@@ -148,14 +199,15 @@
                         <ul>
                             <li class="active"><a href="index.php">Home</a></li>
                             <li><a href="products.php">Shop</a></li>
-                            <li><a href="#">Pages</a>
+                            <li><a href="wishlist.php">wishlist</a></li>
+                            <!-- <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
                                     <li><a href="./shoping-cart.html">Shoping Cart</a></li>
 
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href="cart.php">My cart</a></li>
                             <li><a href="./checkout.html">Check Out</a></li>
                             <!-- <li><a href="./contact.html">Contact</a></li> -->
