@@ -1,65 +1,72 @@
-<?php
-include "db.php";
+<?php include "db.php" ?>
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>All departments</span>
 
-?>
-<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-    <ul class="nav navbar-nav nav_1">
-        <?php
-
-        $get_cat = "SELECT * FROM categories";
-
-        $query = mysqli_query($db, $get_cat);
-
-
-
-        while ($ar = mysqli_fetch_array($query)) {
-            $cat_id = $ar['cat_id'];
-            $cat_title = $ar['cat_title'];
-
-            echo "<li><a href='products.php?cat=$cat_id'>$cat_title</a></li>";
-        };
-
-
-
-        ?>
-        <!-- <li><a href="products.php">Branded Foods</a></li>
-        <li><a href="household.html">Households</a></li>
-        <li class="dropdown mega-dropdown active">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Veggies & Fruits<span class="caret"></span></a>
-            <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
-                <div class="w3ls_vegetables">
+                    </div>
                     <ul>
-                        <li><a href="vegetables.html">Vegetables</a></li>
-                        <li><a href="vegetables.html">Fruits</a></li>
+                        <?php
+
+                        $get_cat = "SELECT * FROM categories";
+                        $query = mysqli_query($db, $get_cat);
+                        while ($ar = mysqli_fetch_array($query)) {
+                            $cat_id = $ar['cat_id'];
+                            $cat_title = $ar['cat_title'];
+                            echo "<li><a href='products.php?cat=$cat_id'>$cat_title</a></li>";
+                        };
+
+
+                        ?>
+                        <!-- <li><a href="#">Fresh Meat</a></li>
+                        <li><a href="#">Vegetables</a></li>
+                        <li><a href="#">Fruit & Nut Gifts</a></li>
+                        <li><a href="#">Fresh Berries</a></li>
+                        <li><a href="#">Ocean Foods</a></li>
+                        <li><a href="#">Butter & Eggs</a></li>
+                        <li><a href="#">Fastfood</a></li>
+                        <li><a href="#">Fresh Onion</a></li>
+                        <li><a href="#">Papayaya & Crisps</a></li>
+                        <li><a href="#">Oatmeal</a></li>
+                        <li><a href="#">Fresh Bananas</a></li> -->
                     </ul>
                 </div>
             </div>
-        </li>
-        <li><a href="kitchen.html">Kitchen</a></li>
-        <li><a href="short-codes.html">Short Codes</a></li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beverages<span class="caret"></span></a>
-            <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
-                <div class="w3ls_vegetables">
-                    <ul>
-                        <li><a href="drinks.html">Soft Drinks</a></li>
-                        <li><a href="drinks.html">Juices</a></li>
-                    </ul>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <div class="hero__search__categories">
+                                All Categories
+                                <span class="arrow_carrot-down"></span>
+                            </div>
+                            <input type="text" placeholder="What do yo u need?">
+                            <button type="submit" class="site-btn">SEARCH</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+65 11.188.888</h5>
+                            <span>support 24/7 time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+                    <div class="hero__text">
+                        <span>FRUIT FRESH</span>
+                        <h2>Vegetable <br />100% Organic</h2>
+                        <p>Free Pickup and Delivery Available</p>
+                        <a href="products.php" class="primary-btn">SHOP NOW</a>
+                    </div>
                 </div>
             </div>
-        </li>
-        <li><a href="pet.html">Pet Food</a></li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Frozen Foods<span class="caret"></span></a>
-            <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
-                <div class="w3ls_vegetables">
-                    <ul>
-                        <li><a href="frozen.html">Frozen Snacks</a></li>
-                        <li><a href="frozen.html">Frozen Nonveg</a></li>
-                    </ul>
-                </div>
-            </div>
-        </li>
-        <li><a href="bread.html">Bread & Bakery</a></li> -->
-    </ul>
-</div><!-- /.navbar-collapse -->
+        </div>
+    </div>
+</section>

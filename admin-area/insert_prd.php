@@ -55,33 +55,34 @@
         //     }
         // }
         // class = 'error-sign'
-        $(document).ready(function() {
-            $('.error-sign').hide();
+        //     $(document).ready(function() {
+        //         $('.error-sign').hide();
 
-        });
+        //     });
 
-        function validform() {
-            var name = document.forms["form"]["pname"].value;
-            var desc = document.forms["form"]["productdis"].value;
-            var price = document.forms["form"]["pprice"].value;
-            var qty = document.forms["form"]["pqty"].value;
-            var img = document.forms["form"]["pimg"].value;
-            var img2 = document.forms["form"]["pimg2"].value;
-            var img3 = document.forms["form"]["pimg3"].value;
-            var brand = document.forms["form"]["pbrand"].value;
-            var category = document.forms["form"]["pcategory"].value;
+        //     function validform() {
+        //         var name = document.forms["form"]["pname"].value;
+        //         var desc = document.forms["form"]["productdis"].value;
+        //         var price = document.forms["form"]["pprice"].value;
+        //         var qty = document.forms["form"]["pqty"].value;
+        //         var img = document.forms["form"]["pimg"].value;
+        //         var img2 = document.forms["form"]["pimg2"].value;
+        //         var img3 = document.forms["form"]["pimg3"].value;
+        //         var brand = document.forms["form"]["pbrand"].value;
+        //         var category = document.forms["form"]["pcategory"].value;
 
-            if (name == '' || desc == '' || price == '' || qty == '' || img == '' || img2 == '' || img3 == '' || brand == '' || category == '') {
-                $(".error-sign").show();
+        //         if (name == '' || desc == '' || price == '' || qty == '' || img == '' || img2 == '' || img3 == '' || brand == '' || category == '') {
+        //             $(".error-sign").show();
 
-                return false;
-            }
-        }
-        $(document).ready(function() {
-            $("input, select, textarea").click(function() {
-                $(".error-sign").css("display", "inline").hide();
-            });
-        });
+        //             return false;
+        //         }
+        //     }
+        //     $(document).ready(function() {
+        //         $("input, select, textarea").click(function() {
+        //             $(".error-sign").css("display", "inline").hide();
+        //         });
+        //     });
+        // 
     </script>
     </script>
     <style>
@@ -189,7 +190,7 @@
                                     <select name="pbrand">
                                         <option>-----select-----</option>
                                         <?php
-                                        $get_brand = "SELECT brand_id,brand_title FROM brands";
+                                        $get_brand = "SELECT brand_id,brand_title FROM brand";
 
                                         $run_brand = mysqli_query($con, $get_brand);
 
@@ -346,7 +347,7 @@ VALUES
     '$product_qty'
     );";
 
-    // echo "$insert_product";
+    echo "$insert_product";
     $run_prod = mysqli_query($con, $insert_product);
     // echo "$prd_description";
 
@@ -362,6 +363,7 @@ VALUES
         exit();
     } else {
         echo "failed";
+        printf("error: %s\n", mysqli_error($con));
     }
     // if (false === $run_prod) {
     //     printf("error: %s\n", mysqli_error($con));
