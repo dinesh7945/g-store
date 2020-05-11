@@ -93,7 +93,7 @@ include "functions.php";
                 echo " <div class='col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat' >
                 <div class='featured__item'>
                 
-                        <div class='featured__item__pic set-bg'   data-setbg='admin-area/product-images/$prod_img1' style='background-size: contain;'>
+                        <div class='featured__item__pic set-bg' data-setbg='admin-area/product-images/$prod_img1' style='background-size: contain;'>
                   
                                 <ul class='featured__item__pic__hover'>
                                     <li><a href=''><i class='fa fa-heart'></i></a></li>

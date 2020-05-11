@@ -33,7 +33,7 @@ include "db.php";
 
     <style>
         .maindiv {
-            margin: auto;
+            margin: auto;   
             max-width: 400px;
             background: #F3F6FA;
             border: 1px solid;
@@ -141,7 +141,6 @@ include "db.php";
                                         // in loopp product_details are fetch 
                                         $cust_id = $row_customer['customer_id'];
                                         $cust_fname = $row_customer['customer_name'];
-                                        
                                     }
                                     echo "<li><i class='fa fa-envelope'></i> $cust_fname</li>";
                                 };

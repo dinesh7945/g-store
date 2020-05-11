@@ -17,6 +17,10 @@ function getrealipaddres()
     }
 }
 
+
+
+
+// Add to cart product
 function cart()
 {
     if (isset($_GET['add_cart'])) {
@@ -49,9 +53,8 @@ function cart()
             // inserting cart by query
             $run_q = mysqli_query($db, $q);
 
-
-
             echo "<script>alert('inserted');</script>";
+        
 
             // echo "<script>window.open('index.php','_self')</script>";
             // Replace the current window with a new window:
@@ -60,5 +63,3 @@ function cart()
         }
     }
 }
-
-?>

@@ -106,15 +106,7 @@ include "functions.php";
 
             $check_cart = mysqli_num_rows($run_cart);
 
-            // if ($check_customer == 0) {
-            //     echo "<script>alert('email or password is wrong, try again!')</script>";
-            //     exit();
-            // }
-            // if ($check_customer == 1 and $check_cart == 0) {
-
-            //     $_SESSION['customer_email'] = $customer_email;
-            //     echo "<script>window.open('index.php','_self')</script>";
-            // }
+            
             if ($check_customer) {
                 $_SESSION['customer_email'] = $customer_email;
                 // $_SESSION['customer_fullname'] = $customer_fullname;
